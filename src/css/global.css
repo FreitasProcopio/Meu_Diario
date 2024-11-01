@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=League+Spartan:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #c7884f;
+}
+
+.container-fluid {
+    padding: 0px 200px !important;
+}
+
+.flex {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex ul li a {
+    font-size:20px;
+    font-family:'Montserrat', sans-serif;
+}
+
+header {
+    width: 100%;
+    padding: 60px 1%;
+    transition: .6s;
+    position: fixed; 
+    z-index: 999;
+}
+
+header ul {
+    list-style-type: none;
+    margin-left: 10px; /* 320px */
+    transform: translateX(-80 -80);  
+}
+
+header ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+header ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: 0.6s;
+}
+
+header.rolagem {
+    background-color: #826f60be;
+    padding: 35px 2%;
+}
+
+header.rolagem a {
+    color: white;
+    margin-left: 20px;
+    transition: 0.6s;
+}
