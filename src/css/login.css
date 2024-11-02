@@ -1,0 +1,133 @@
+
+#body_login {
+    display: flex;
+    justify-content: flex;
+    align-items: center;
+    height: 100vh;
+    background-color: #664932;
+}
+
+.header_login {
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#main-direcao {
+    display: flex;
+    gap: 40px;
+    width: 300%;
+    margin-top: 100px;
+}
+
+.forms_login {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 70px 30px;
+    border-radius: 15px;
+    width: 500px;
+    margin-left: 15%;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+.forms_cadastro {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 70px 30px;
+    border-radius: 15px;
+    width: 500px;
+    color: #fff;
+    text-align: center;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.forms_login > h2,
+.forms_cadastro > h2 {
+    margin-bottom: 40px;
+    font-size: 2em;
+    font-weight: 600;
+    font-family: "Gloria Hallelujah", cursive;
+    color: #ddd;
+}
+
+.forms_login .input-login, 
+.forms_cadastro .input-cadastro {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.forms_login input,
+.forms_cadastro input {
+    width: 100%;
+    padding: 15px 35px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    color: #ddd;
+    outline: none;
+    font-size: 0.9em;
+}
+
+.forms_login .input-login > i,
+.forms_cadastro .input-cadastro > i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.forms_login .options-login,
+.forms_cadastro .options-cadastro {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.83em;
+    font-family: 'Montserrat', sans-serif;
+    color: #aaa;
+}
+
+.forms_login .options-login input,
+.forms_cadastro .options-cadastro input {
+    width: 20px; 
+    height: 12px;
+    font-family: "Gloria Hallelujah", cursive;
+}
+
+.forms_login .options-login > a,
+.forms_cadastro .options-cadastro > a {
+    text-decoration: none;
+    color: #aaa;
+}
+
+.forms_login button,
+.forms_cadastro button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #66574bb4;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.forms_login button:hover,
+.forms_cadastro button:hover {
+    background-color: #664932;
+}
+
+.account_question,
+.account_box {
+    position: absolute;
+    z-index: 999;
+    margin-left: 82.5%;
+    margin-bottom: 100px;
+    height: 60%;
+}

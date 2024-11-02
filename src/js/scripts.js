@@ -1,6 +1,5 @@
 window.addEventListener('scroll', function() {
 
-
     let header = document.querySelector ('header')
     header.classList.toggle('rolagem',window.scrollY > 0)
     /* Add uma class js ao #header. 'toggle' = Se essa classe (css) que eu escrever já existir, ele apaga. Se não existir, ele cria uma */

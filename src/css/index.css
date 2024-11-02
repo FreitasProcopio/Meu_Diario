@@ -1,3 +1,8 @@
+
+#body_index {
+    background-color: #c7884f;
+}
+
 #secao_imagem {
     display: flex;
     justify-content: center;
@@ -10,7 +15,6 @@
     margin-top: 8%;
     height: auto;
 }
-
 
 #letter_container {
     display: flex;

@@ -3,25 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/login.css">
-    <title> Diário </title>
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../assets/img/livro01.png" type="image/png">
+    <title> Diário </title>
 </head>
-<body>
-    <header>
+
+<body id="body_login">
+    <header class="header_login">
         <section class="container-fluid">
             <div class="flex">
                 <nav>
                     <ul>
-                        <li><a href="login.html"> Login </a></li>
-                        <li><a href="#"> Home </a></li>
-                        <li><a href="contact.html"> Contact </a></li>
+                        <li><a href="./login.html"> REGISTER </a></li>
+                        <li><a href="./index.html"> HOME </a></li>
+                        <li><a href="./contact.html"> CONTACT </a></li>
                     </ul>
                 </nav>
             </div>
         </section>
     </header>
+    <main id="main-direcao">
+        <section class="forms_login">
 
-    <main>
-        
+            <h2> My Dear Login </h2>
+
+            <article class="input-login">
+                <i class="fa fa-envelope"></i>
+                <input type="email" placeholder="Email ID">
+            </article>
+
+            <article class="input-login">
+                <i class="fa fa-lock"></i>
+                <input type="password" placeholder="Password">
+            </article>
+
+            <article class="options-login">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot Password?</a>
+            </article>
+
+            <button>LOGIN</button>
+
+        </section>
+
+        <div id="separador"> </div>
+
+        <section class="forms_cadastro">
+
+            <h2> My Dear Register </h2>
+
+            <article class="input-cadastro">
+                <i class="fa fa-envelope"></i>
+                <input type="email" placeholder="Email ID">
+            </article>
+
+            <article class="input-cadastro">
+                <i class="fa fa-lock"></i>
+                <input type="password" placeholder="Password">
+            </article>
+
+            <article class="input-cadastro">
+                <i class="fa fa-lock"></i>
+                <input type="password" placeholder="Check Password">
+            </article>
+
+            <article class="options-cadastro">
+                <span id="confirmacao"> Remember me </span>
+            </article>
+
+            <button>REGISTER</button>
+
+        </section>
     </main>
+        <p class="account_box"> <img src="../assets/img/account_registrer03.png" class="account_question"> </p>
+        <script src="../js/scripts.js"></script>
+        
+</body>
+</html>

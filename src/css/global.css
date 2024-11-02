@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: #c7884f;
-}
-
 .container-fluid {
     padding: 0px 200px !important;
 }
@@ -21,7 +17,7 @@ body {
 }
 
 .flex ul li a {
-    font-size:20px;
+    font-size:16px;
     font-family:'Montserrat', sans-serif;
 }
 
