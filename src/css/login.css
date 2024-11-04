@@ -7,13 +7,6 @@
     background-color: #664932;
 }
 
-.header_login {
-    display: flex;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-
 #main-direcao {
     display: flex;
     gap: 40px;
@@ -30,7 +23,6 @@
     color: #fff;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 999;
 }
 
 .forms_cadastro {
@@ -40,7 +32,6 @@
     width: 500px;
     color: #fff;
     text-align: center;
-    z-index: 999;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
