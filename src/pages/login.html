@@ -25,6 +25,8 @@
         </section>
     </header>
 
+    <p class="account_box"> <img src="../assets/img/account_registrer03.png" class="account_question"> </p>
+
     <main id="main-direcao">
         <section class="forms_login">
 
@@ -32,20 +34,15 @@
 
             <article class="input-login">
                 <i class="fa fa-envelope"></i>
-                <input type="email" placeholder="Email ID">
+                <input type="email" placeholder="Email ID" id="email-login">
             </article>
 
             <article class="input-login">
                 <i class="fa fa-lock"></i>
-                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Password" id="password-login">
             </article>
 
-            <article class="options-login">
-                <label><input type="checkbox"> Remember me</label>
-                <a href="#">Forgot Password?</a>
-            </article>
-
-            <button>LOGIN</button>
+            <button id="btn-login">LOGIN</button>
 
         </section>
 
@@ -57,29 +54,27 @@
 
             <article class="input-cadastro">
                 <i class="fa fa-envelope"></i>
-                <input type="email" placeholder="Email ID">
+                <input type="email" placeholder="Email ID" id="email_register">
             </article>
 
             <article class="input-cadastro">
                 <i class="fa fa-lock"></i>
-                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Password" id="password_register">
             </article>
 
             <article class="input-cadastro">
                 <i class="fa fa-lock"></i>
-                <input type="password" placeholder="Check Password">
+                <input type="password" placeholder="Check Password" id="check_register">
             </article>
 
-            <article class="options-cadastro">
-                <span id="confirmacao"> Remember me </span>
-            </article>
-
-            <button>REGISTER</button>
+            
+            <button id="btn-register">REGISTER</button>
+            <h1><span id="message"> </span></h1>
+            
         </section>
     </main>
-
-        <p class="account_box"> <img src="../assets/img/account_registrer03.png" class="account_question"> </p>
-        <script src="../js/scripts.js"></script>
-        <script src="../js/registrer.js"></script>
+        <script src="../js/header.js"></script>
+        <script src="../js/postRegister.js"></script>
+        <script src="../js/getRegister.js"></script>
 </body>
 </html>
