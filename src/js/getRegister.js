@@ -1,5 +1,4 @@
 class DataCollector {
-    // Esta classe coleta os dados de entrada do formulário
     static getInputs() {
         const email = document.getElementById('email-login').value;
         const password = document.getElementById('password-login').value;
@@ -8,7 +7,6 @@ class DataCollector {
 }
 
 class CredentialChecker {
-    // Esta classe verifica as credenciais obtidas da API
     constructor(data) {
         this.data = data;
     }
@@ -39,6 +37,7 @@ class Login {
                 const credentialChecker = new CredentialChecker(data); // instânciando a classe e atribuindo o const a variável credentialChecker
                 if (credentialChecker.checkCredentials(email, password)) {
                     console.log("OK");
+                    window.location.href = '../pages/notas.html'
                 } else {
                     console.log("ERROR PASSWORD");
                 }
@@ -51,7 +50,7 @@ class Login {
     }
 }
 
-const btn_login = document.getElementById('btn-login');
+const btn_login = document.getElementById('btn_login');
 btn_login.addEventListener('click', () => {
     const login = new Login();
     login.getRegister();

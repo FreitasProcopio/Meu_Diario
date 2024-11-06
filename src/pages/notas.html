@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/notas.css">
-    <title>Document</title>
+    <link rel="icon" href="../assets/img/livro01.png" type="image/png">
+    <title>My Dear</title>
 </head>
 <body id="body_notas">
     <header>
@@ -13,9 +14,8 @@
             <div class="flex">
                 <nav>
                     <ul>
-                        <li><a href="login.html"> LOGIN </a></li>
-                        <li><a href="#"> HOME </a></li>
-                        <li><a href="./config.html"> CONFIG </a></li>
+                        <li><a href="login.html"> REGISTER </a></li>
+                        <li><a href="./index.html"> HOME </a></li>
                     </ul>
                 </nav>
             </div>
@@ -30,38 +30,44 @@
             </div>
 
             <section class="title">
-                <h2> Welcome, <span id="name"> Pedro </span></h2>
+                <h2> Welcome, <span id="name_user"> People </span></h2>
                 <article class="title_input">
-                    <input type="text"  id="title_note" placeholder=" Enter your new Title  -  ex: Summer, My Day, 02/11/2024 ">
-                    <button class="open-modal-btn" > OK </button>
+                    <input type="text"  id="title_notes" placeholder=" Enter your new Title  -  ex: Summer, My Day, 02/11/2024 ">
+                    <button class="open-modal-btn"> OK </button>
                 </article>
             </section>
 
             <section class="carrosel">
                 <h2> Your Notes </h2>
-                <article class="conteudo_carrosel">
-
-                </article>
+                <article class="conteudo_carrosel"> </article>
             </section>
 
             <section class="modal" id="notesModal">
                 <div class="modal-content">
 
                     <article class="modal-header">
-                        <h2>Title das notas</h2>
-                        <button class="close-btn" onclick="closeModal()">×</button>
+                        <h1 id="your_notes"> Let the stories begin! </h1>
+                        <button class="close-modal-btn" onclick="closeBtn()"> × </button>
                     </article>
 
                     <article class="modal-body">
-                        <textarea placeholder=' WRITE YOUR NOTES HERE... &#10; EXEMPLO: &#10; MY FIRST WRITE IN APP " DEAR DIARY " '></textarea>
+                        <textarea id="notes_area" placeholder=' WRITE YOUR NOTES HERE... &#10; EXEMPLO: &#10; MY FIRST WRITE IN APP " DEAR DIARY " '></textarea>
                     </article>
-
+                    <button class="salve-modal-btn"> OK </button>
                 </div>
             </section>
-
         </section>
+
     </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Dear Diary. Todos os direitos reservados.</p>
+    </footer>
+    
     <script src="../js/header.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/postNotes.js"></script>
+    <script src="../js/getNotes.js"></script>
 </body>
 </html>
 

@@ -3,16 +3,18 @@ const span = document.getElementById('message');
 const url = "http://localhost:3000/usuarios-login";
 
 class Register {
-    constructor(email_register, password_register, check_register) {
+    constructor(name_register, email_register, password_register, check_register) {
+        this.name_register = name_register;
         this.email_register = email_register;
         this.password_register = password_register;
         this.check_register = check_register;
     }
 
     sensiveis = () => {
-        if (this.email_register) { 
+        if (this.email_register && this.name_register) { 
             if (this.password_register === this.check_register) {
                 const dados = {
+                    "name": this.name_register,
                     "email": this.email_register,
                     "check_password": this.check_register
                 };
@@ -29,19 +31,21 @@ class Register {
 class ActionBtn {
     constructor() {
         this.open();
+        this.span = document.getElementById('message');
     }
 
     open() {
         btn.addEventListener('click', () => {
             try {
+                const name = document.getElementById('name_register').value;
                 const email = document.getElementById('email_register').value;
                 const password = document.getElementById('password_register').value;
                 const checkPassword = document.getElementById('check_register').value;
 
-                const registro = new Register(email, password, checkPassword);
+                const registro = new Register(name,email, password, checkPassword);
                 registro.sensiveis();
 
-                setTimeout(() => this.showMessage(), 1000);
+                setTimeout(() => this.showMessage(), 1000);                 
                 
             } catch (erro) {
                 span.innerText = erro.message;
@@ -58,12 +62,13 @@ class ActionBtn {
         span.style.display = "flex";
         span.style.color = "green";
 
-        setTimeout(() => this.closeMessage(), 2000);    
+        setTimeout(() => this.closeMessage(), 3000);    
     }
     
     closeMessage() {
         span.style.display = "none";
 
+        document.getElementById('name_register').value = '';
         document.getElementById('email_register').value = '';
         document.getElementById('password_register').value = '';
         document.getElementById('check_register').value = '';
@@ -97,3 +102,4 @@ class POST_USER {
     }
 }
 
+new ActionBtn();

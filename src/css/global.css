@@ -58,3 +58,19 @@ header.rolagem a {
     margin-left: 20px;
     transition: 0.6s;
 }
+
+.footer {
+    background-color: #b99474;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
