@@ -3,27 +3,48 @@ class allBasic {
         this.getNotes = this.getNotes.bind(this);
     }
 
-    getNotes() {
-        const xhr = new XMLHttpRequest();
-        xhr.open("GET", `http://localhost:3001/notes`);
-
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                const data = JSON.parse(xhr.response);
+    async getUserId() {
+        try {
+            const response = await fetch('http://localhost:3000/usuarios-login');
+            if (response.ok) {
+                const users = await response.json();
                 
-                const display = new Add();
-                
-                data.forEach(note => {
-                    display.displayNotes(note.id, note.title, note.allNotes); 
-                });
+                // Supondo que o primeiro usuário seja o logado, substitua esta lógica conforme necessário
+                const loggedInUser = users[0]; // Ajuste conforme a estrutura do login
+                return loggedInUser.id; // Retorna o `id` do usuário logado
             } else {
-                console.error('Erro ao buscar dados da API:', xhr.status);
+                console.error("Erro ao buscar o usuário logado:", response.status);
             }
-        };
+        } catch (error) {
+            console.error("Erro na requisição para obter o usuário:", error);
+        }
+    }
 
-        xhr.send();
+    async getNotes() {
+        const userId = await this.getUserId(); // Obtém o ID do usuário logado da API
+
+        if (userId) {
+            try {
+                const response = await fetch(`http://localhost:3001/notes?userId=${userId}`);
+                if (response.ok) {
+                    const data = await response.json();
+
+                    const display = new Add();
+                    data.forEach(note => {
+                        display.displayNotes(note.id, note.title, note.allNotes);
+                    });
+                } else {
+                    console.error('Erro ao buscar dados da API:', response.status);
+                }
+            } catch (error) {
+                console.error('Erro de conexão com a API:', error);
+            }
+        } else {
+            console.log("ID do usuário não encontrado.");
+        }
     }
 }
+
 
 class Add {
     displayNotes(id, title, notes) {
@@ -96,7 +117,7 @@ class Editor {
 
     saveChanges(noteId, updatedContent) {
         const xhr = new XMLHttpRequest();
-        xhr.open("PATCH", `http://localhost:3000/notes/${noteId}`);
+        xhr.open("PATCH", `http://localhost:3001/notes/${noteId}`);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
         xhr.onload = () => {
@@ -127,7 +148,7 @@ class Delete {
 
     deleteNote(noteId, callback) {
         const xhr = new XMLHttpRequest();
-        xhr.open("DELETE", `http://localhost:3000/notes/${noteId}`);
+        xhr.open("DELETE", `http://localhost:3001/notes/${noteId}`);
         
         xhr.onload = () => {
             if (xhr.status === 200) {
