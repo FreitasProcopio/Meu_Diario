@@ -37,6 +37,10 @@ Este projeto utiliza o `json-server` para emular uma API e armazenar os dados de
 
 Para rodar a aplicação localmente, é necessário executar dois servidores JSON Server, um para cada porta.
 
+### Atenção! 
+
+- É obrigatório que você esteja na pasta " Json " para rodar tais códigos.
+
 1. Instale em sua máquina o JSON SERVER
 
     - npm install -g json-server@0.17.4  (npm)  
@@ -44,15 +48,17 @@ Para rodar a aplicação localmente, é necessário executar dois servidores JSO
 
     [Repositório do JSON SERVER](https://github.com/typicode/json-server/tree/v0)
 
-
 2. Para rodar o primeiro servidor, utilize o comando:
     ```bash
-    json-server --watch register.json --port 3000
+    npx json-server --watch register.json --port 3000
     ```
 
-3. Para rodar o segundo servidor, utilize o comando:
+3. Para rodar o segundo servidor:
+
+    Abra um novo terminal " bash " e utilize o comando:
+
     ```bash
-    json-server --watch notes.json --port 3001
+    npx json-server --watch notes.json --port 3001
     ```
 
 ### Atenção!
