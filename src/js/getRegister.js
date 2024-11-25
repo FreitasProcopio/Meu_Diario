@@ -22,6 +22,7 @@ class CredentialChecker {
 class Login {
     constructor() {
         this.getRegister = this.getRegister.bind(this);
+        this.span = document.getElementById('message-login'); 
     }
 
     getRegister() {
@@ -33,13 +34,16 @@ class Login {
                 const data = JSON.parse(xhr.response);
                 const { email } = DataCollector.getInputs();
                 const { password } = DataCollector.getInputs();
+                
+                const credentialChecker = new CredentialChecker(data); 
 
-                const credentialChecker = new CredentialChecker(data); // instânciando a classe e atribuindo o const a variável credentialChecker
                 if (credentialChecker.checkCredentials(email, password)) {
-                    console.log("OK");
-                    window.location.href = '../pages/notas.html'
+                    // Armazena o email do usuário logado no localStorage
+                    localStorage.setItem('loggedInUser', email);
+                    setTimeout(() => this.showMessage(), 1000);
+                    setTimeout(() => { window.location.href = '../pages/notas.html'; }, 3000);
                 } else {
-                    console.log("ERROR PASSWORD");
+                    setTimeout(() => this.errorMessage(), 1000);
                 }
             } else {
                 console.error('Erro ao buscar dados da API:', xhr.status);
@@ -48,10 +52,36 @@ class Login {
 
         xhr.send();
     }
+
+    showMessage() {
+        this.span.innerText = "Successful";
+        this.span.style.display = "flex";
+        this.span.style.marginTop = "20px";
+        this.span.style.color = "#378137";
+
+        setTimeout(() => this.closeMessage(), 2000);
+    }
+
+    errorMessage() {
+        this.span.innerText = "Check your Email or Password"
+        this.span.style.display = "flex";
+        this.span.style.marginTop = "20px";
+        this.span.style.color = "#b22929";
+
+        setTimeout(() => this.closeMessage(), 2000);
+    }
+
+    closeMessage() {
+        this.span.style.display = "none";
+
+        document.getElementById('email-login').value = '';
+        document.getElementById('password-login').value = '';
+    }
 }
 
-const btn_login = document.getElementById('btn_login');
-btn_login.addEventListener('click', () => {
+const btn = document.getElementById('btn-login');
+
+btn.addEventListener('click', () => {
     const login = new Login();
     login.getRegister();
 });

@@ -293,3 +293,13 @@
 .delete-btn:hover{
     background-color: #dd3f3f;
 }
+
+#message-notes {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    font-family:'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}

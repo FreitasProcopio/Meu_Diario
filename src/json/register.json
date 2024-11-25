@@ -7,10 +7,16 @@
       "check_password": "rename"
     },
     {
-      "id": "f3b2",
-      "name": "Peter",
-      "email": "Freitas@escola.com.br",
-      "check_password": "pass"
+      "id": "7bd1",
+      "name": "Teste1",
+      "email": "teste1@gmail.com",
+      "check_password": "1234"
+    },
+    {
+      "id": "178b",
+      "name": "teste2",
+      "email": "teste2@gmail.com",
+      "check_password": "12345"
     }
   ]
 }

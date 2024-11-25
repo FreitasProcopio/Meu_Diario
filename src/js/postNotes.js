@@ -1,4 +1,4 @@
-const btnTitle = document.querySelector('.open-modal-btn'); // Corrigido o seletor de classe
+const btnTitle = document.querySelector('.open-modal-btn'); 
 const btnNotes = document.querySelector('.salve-modal-btn');
 const url = "http://localhost:3001/notes";
 
@@ -9,7 +9,7 @@ class Register_Notes {
     }
 
     conteudo() {
-        if (this.title_notes && this.notes_area) {  // Verifica se ambos os campos têm conteúdo
+        if (this.title_notes && this.notes_area) {  
             const takeNote = {
                 "title": this.title_notes,
                 "allNotes": this.notes_area
@@ -25,7 +25,7 @@ class Register_Notes {
 
 class ActionNotes {
     constructor() {
-        this.btnTitle = btnTitle; // Inicializa os botões aqui
+        this.btnTitle = btnTitle; 
         this.btnNotes = btnNotes;
         this.notes();
     }
@@ -35,11 +35,12 @@ class ActionNotes {
             try {
                 const title = document.getElementById('title_notes').value;
                 const allNotes = document.getElementById('notes_area').value;
-                
-                const registro = new Register_Notes(title, allNotes); 
-                registro.conteudo();
+
+                    const registro = new Register_Notes(title, allNotes);
+                    registro.conteudo();
+
             } catch (erro) {
-                console.log("ERROR:", erro.message);
+                this.showMessage(erro.message, "#b22929");
             }
         });
 
@@ -47,12 +48,25 @@ class ActionNotes {
             try {
                 const title = document.getElementById('title_notes').value;
                 const allNotes = document.getElementById('notes_area').value;
+                
                 const registro = new Register_Notes(title, allNotes);
                 registro.conteudo();
             } catch (erro) {
-                console.log("ERROR:", erro.message);
+                this.showMessage(erro.message, "#b22929");
             }
         });
+    }
+
+    showMessage(message, color) {
+        const span = document.getElementById('message-notes');
+        span.innerText = message;
+        span.style.display = "flex";
+        span.style.marginTop = "20px";
+        span.style.color = color;
+
+        setTimeout(() => {
+            span.style.display = "none";
+        }, 2000);
     }
 }
 
@@ -63,7 +77,6 @@ class POST_NOTES {
 
     connection(url, takeNote) {
         try {
-            console.log("Body=", takeNote);
             const request = new XMLHttpRequest();
             request.open("POST", url, true);
             request.setRequestHeader("Content-type", "application/json");

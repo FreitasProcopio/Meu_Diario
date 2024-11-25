@@ -19,6 +19,8 @@
     padding: 70px 30px;
     border-radius: 15px;
     width: 500px;
+    height: 500px;
+    margin-top: 25px;
     margin-left: 15%;
     color: #fff;
     text-align: center;
@@ -124,9 +126,18 @@
 }
 
 #message {
-    display: none;
+    display: flex;
     width: 100%;
-    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+    font-family:'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#message-login {
+    display: flex;
+    width: 100%;
     text-align: center;
     justify-content: center;
     font-family:'Montserrat', sans-serif;

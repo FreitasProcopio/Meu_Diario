@@ -5,26 +5,41 @@ class allBasic {
 
     async getUserId() {
         try {
+            const loggedInEmail = localStorage.getItem('loggedInUser');
+
+            if (!loggedInEmail) {
+                console.error("Nenhum usuário logado.");
+                return null;
+            }
+
             const response = await fetch('http://localhost:3000/usuarios-login');
             if (response.ok) {
                 const users = await response.json();
+
                 
-                // Supondo que o primeiro usuário seja o logado, substitua esta lógica conforme necessário
-                const loggedInUser = users[0]; // Ajuste conforme a estrutura do login
-                return loggedInUser.id; // Retorna o `id` do usuário logado
+                const loggedInUser = users.find(user => user.email === loggedInEmail);
+
+                if (loggedInUser) {
+                    return loggedInUser.id; 
+                } else {
+                    console.error("Usuário não encontrado.");
+                    return null;
+                }
             } else {
-                console.error("Erro ao buscar o usuário logado:", response.status);
+                console.error("Erro ao buscar usuários:", response.status);
             }
         } catch (error) {
             console.error("Erro na requisição para obter o usuário:", error);
         }
+
+        return null;
     }
 
     async getNotes() {
-        const userId = await this.getUserId(); // Obtém o ID do usuário logado da API
+        const userId = await this.getUserId();
 
         if (userId) {
-            try {
+            try {  
                 const response = await fetch(`http://localhost:3001/notes?userId=${userId}`);
                 if (response.ok) {
                     const data = await response.json();
@@ -34,26 +49,24 @@ class allBasic {
                         display.displayNotes(note.id, note.title, note.allNotes);
                     });
                 } else {
-                    console.error('Erro ao buscar dados da API:', response.status);
+                    console.error('Erro ao buscar notas:', response.status);
                 }
             } catch (error) {
                 console.error('Erro de conexão com a API:', error);
             }
         } else {
-            console.log("ID do usuário não encontrado.");
+            console.log("Nenhuma nota encontrada para o usuário logado.");
         }
     }
 }
 
-
 class Add {
     displayNotes(id, title, notes) {
-
         const conteudoCarrosel = document.querySelector('.conteudo_carrosel');
 
         const notePreview = document.createElement('div');
         notePreview.classList.add('note-preview');
-        
+
         notePreview.innerHTML = `
             <h3>${title}</h3>
             <button class="edit-btn">Editar</button>
@@ -132,7 +145,6 @@ class Editor {
     }
 }
 
-
 class Delete {
     enableDeleting(noteElement, noteId) {
         const deleteButton = noteElement.querySelector('.delete-btn');
@@ -149,7 +161,7 @@ class Delete {
     deleteNote(noteId, callback) {
         const xhr = new XMLHttpRequest();
         xhr.open("DELETE", `http://localhost:3001/notes/${noteId}`);
-        
+
         xhr.onload = () => {
             if (xhr.status === 200) {
                 callback();
@@ -162,6 +174,5 @@ class Delete {
     }
 }
 
-// Cria uma instância de allBasic e chama o método para obter as notas
 const notesApp = new allBasic();
 notesApp.getNotes();

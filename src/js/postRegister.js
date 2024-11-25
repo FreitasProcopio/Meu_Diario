@@ -1,5 +1,3 @@
-const btn = document.getElementById('btn-register');
-const span = document.getElementById('message');
 const url = "http://localhost:3000/usuarios-login";
 
 class Register {
@@ -11,7 +9,7 @@ class Register {
     }
 
     sensiveis = () => {
-        if (this.email_register && this.name_register) { 
+        if (this.email_register && this.name_register) {
             if (this.password_register === this.check_register) {
                 const dados = {
                     "name": this.name_register,
@@ -23,55 +21,8 @@ class Register {
                 throw new Error("As senhas não correspondem.");
             }
         } else {
-            throw new Error("Email não fornecido.");
+            throw new Error("Preencha todos os campo2s");
         }
-    }
-}
-
-class ActionBtn {
-    constructor() {
-        this.open();
-        this.span = document.getElementById('message');
-    }
-
-    open() {
-        btn.addEventListener('click', () => {
-            try {
-                const name = document.getElementById('name_register').value;
-                const email = document.getElementById('email_register').value;
-                const password = document.getElementById('password_register').value;
-                const checkPassword = document.getElementById('check_register').value;
-
-                const registro = new Register(name,email, password, checkPassword);
-                registro.sensiveis();
-
-                setTimeout(() => this.showMessage(), 1000);                 
-                
-            } catch (erro) {
-                span.innerText = erro.message;
-                span.style.display = "flex";
-                span.style.color = "red"; 
-                
-                setTimeout(() => this.closeMessage(), 2000);
-            }
-        });
-    }
-
-    showMessage() {
-        span.innerText = "Successfully registered";
-        span.style.display = "flex";
-        span.style.color = "green";
-
-        setTimeout(() => this.closeMessage(), 3000);    
-    }
-    
-    closeMessage() {
-        span.style.display = "none";
-
-        document.getElementById('name_register').value = '';
-        document.getElementById('email_register').value = '';
-        document.getElementById('password_register').value = '';
-        document.getElementById('check_register').value = '';
     }
 }
 
@@ -99,6 +50,57 @@ class POST_USER {
         } catch (erro) {
             console.log("Erro de conexão:", erro);
         }
+    }
+}
+
+class ActionBtn {
+    constructor() {
+        this.span = document.getElementById('message'); 
+        this.open(); 
+    }
+
+    open() {
+        const btn = document.getElementById('btn-register');
+        btn.addEventListener('click', () => {
+            try {
+                const name = document.getElementById('name_register').value.trim();
+                const email = document.getElementById('email_register').value.trim();
+                const password = document.getElementById('password_register').value.trim();
+                const checkPassword = document.getElementById('check_register').value.trim();
+    
+                const registro = new Register(name, email, password, checkPassword);
+
+                setTimeout(() => {
+                    try {
+                        setTimeout (() => registro.sensiveis(), 2000); 
+                        this.showMessage("Successful", "#378137"); 
+                    } catch (erro) {
+                        this.showMessage(erro.message, "#b22929"); 
+                    }
+                }, 2000);
+    
+            } catch (erro) {
+                this.showMessage(erro.message, "#b22929"); 
+            }
+        });
+    }
+
+    showMessage(message, color) {
+        this.span.innerText = message;
+        this.span.style.display = "flex";
+        this.span.style.marginTop = "20px";
+        this.span.style.color = color;
+
+        setTimeout(() => this.closeMessage(), 2000);
+    }
+    
+    closeMessage() {
+        this.span.style.display = "none";
+
+        document.getElementById('name_register').value = '';
+        document.getElementById('email_register').value = '';
+        document.getElementById('password_register').value = '';
+        document.getElementById('check_register').value = '';
     }
 }
 
