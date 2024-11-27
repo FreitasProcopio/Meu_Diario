@@ -29,7 +29,6 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 80px;
-    margin-left: 100px;
     width: 80%;
     height: 20vh;
     position: relative;
@@ -68,4 +67,20 @@
     color: #446;
 }
 
-
+@media (max-width:1024px) {
+    header ul {
+        margin-left: -165px;
+    }
+    #letter_diario {
+        margin-left: 60px;
+    }
+    #imagem {
+        width: 130%;
+    }
+    .flex ul li a {
+        font-size: 19px;
+    }
+    .card {
+        height: 40vh;
+    }
+}

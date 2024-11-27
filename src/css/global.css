@@ -34,7 +34,6 @@ header {
 header ul {
     list-style-type: none;
     margin-left: 10px; /* 320px */
-    transform: translateX(-80 -80);  
 }
 
 header ul li {

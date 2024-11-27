@@ -17,7 +17,7 @@
 }
 
 #imagem {
-    width: 100%; 
+    max-width: 100%; 
     margin-top: 8%;
     height: 55em;
 }
@@ -91,7 +91,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 80px;
+    margin-top: 10px;
     margin-left: 3%;
     height: 235px;
     width: 95%;
@@ -118,19 +118,18 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 140%;
+    height: 129.2%;
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    z-index: 9999; 
+    z-index: 999; 
 }
 
 .modal-content {
     background-color: #fff;
     margin: auto;
-    margin-top: 100px;
-    width: 80%;
-    max-width: 900px;
+    margin-top: 200px;
+    width: 60%;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -197,8 +196,8 @@
     justify-content: center;
     background-color: #fff;
     margin: auto;
-    margin-top: 450px;
-    max-width: 500px;
+    margin-top: 200px;
+    width: 60%;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -302,4 +301,60 @@
     font-family:'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 15px;
+}
+
+@media (max-width:1024px) {
+    .container-fluid {
+        padding: 0px 135px !important;
+    }
+    .flex ul li a {
+        font-size: 18px;
+    }
+    .title > h2 {
+        font-size: 70px;
+    }
+    .title_input > input {
+        width: 550px;
+        font-size: 17px;
+    }
+    .title_input button {
+        width: 80px;
+        height: 60px;
+    }
+    .carrosel > h2 {
+        margin-top: 100px;
+    }
+    #your_notes {
+        font-size: 30px;
+    }
+    .modal-content {
+        width: 80%;
+    }
+    .modal-body textarea {
+        font-size: 18px;
+    }
+    .close-modal-btn {
+        font-size: 30px;
+    }
+    .salve-modal-btn {
+        font-size: 18px;
+    }
+    .modal-content-notes > h2 {
+        font-size: 25px;
+    }
+    .modal-content-notes {
+        width: 80%;
+    }
+    #modalNotes {
+        font-size: 20px;
+    }
+    #saveModalBtnNotes {
+        font-size: 17px;
+    }
+    #closeModalBtnNotes {
+        font-size: 17px;
+    }
+    .conteudo_carrosel {
+        margin-top: 10px;
+    }
 }

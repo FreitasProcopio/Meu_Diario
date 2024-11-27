@@ -2,7 +2,7 @@ class allBasic {
     constructor() {
         this.getNotes = this.getNotes.bind(this);
     }
-
+     
     async getUserId() {
         try {
             const loggedInEmail = localStorage.getItem('loggedInUser');
@@ -58,6 +58,14 @@ class allBasic {
             console.log("Nenhuma nota encontrada para o usuário logado.");
         }
     }
+}
+
+function logout() {
+    sessionStorage.removeItem('userId');
+    localStorage.removeItem('loggedInUser');
+    document.getElementById('login').style.display = 'block';
+    document.getElementById('notesSection').style.display = 'none';
+    console.log("Logout realizado com sucesso!");
 }
 
 class Add {

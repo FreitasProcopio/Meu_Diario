@@ -38,7 +38,7 @@ class Login {
                 const credentialChecker = new CredentialChecker(data); 
 
                 if (credentialChecker.checkCredentials(email, password)) {
-                    // Armazena o email do usuário logado no localStorage
+                    
                     localStorage.setItem('loggedInUser', email);
                     setTimeout(() => this.showMessage(), 1000);
                     setTimeout(() => { window.location.href = '../pages/notas.html'; }, 3000);

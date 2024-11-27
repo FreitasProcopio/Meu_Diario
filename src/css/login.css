@@ -1,7 +1,6 @@
 
 #body_login {
     display: flex;
-    justify-content: flex;
     align-items: center;
     height: 100vh;
     background-color: #664932;
@@ -14,6 +13,9 @@
     margin-top: 100px;
 }
 
+#timeline-login {
+    display: none;
+}
 .forms_login {
     background: rgba(0, 0, 0, 0.6);
     padding: 70px 30px;
@@ -121,7 +123,7 @@
     position: absolute;
     z-index: 999;
     margin-left: 82.5%;
-    margin-bottom: 100px;
+    margin-bottom: 108px;
     height: 60%;
 }
 
@@ -143,4 +145,30 @@
     font-family:'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 15px;
+}
+
+@media (max-width: 1024px) {
+    header ul {
+        margin-left: -50px;
+        margin-top: 25px;
+    }
+    .flex ul li a {
+        font-size: 20px;
+    }
+    .forms_login {
+        width: 700px;
+        margin-left: 16%;
+    }
+    .forms_cadastro {
+        width: 700px;
+        margin-left: 12%;
+        display: none;
+    }
+    .account_question,
+    .account_box {
+        display: none;
+    }
+    #timeline-login {
+        display: flex;
+    }
 }
