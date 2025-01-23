@@ -26,11 +26,6 @@
     cd dear-diary
     ```
 
-2. Instale as dependências necessárias (caso ainda não tenha feito):
-    ```bash
-    npm install
-    ```
-
 ### Passo 2: Rodar o JSON Server
 
 Este projeto utiliza o `json-server` para emular uma API e armazenar os dados de notas em um arquivo JSON.
